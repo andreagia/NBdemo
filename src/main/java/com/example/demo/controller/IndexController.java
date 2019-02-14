@@ -18,4 +18,8 @@ public class IndexController {
         model.addAttribute("name", "SPRING Security");
         return "hello";
     }
+    @GetMapping("/login")
+    public String login() {
+        return "/login";
+    }
 }
