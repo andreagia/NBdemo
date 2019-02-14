@@ -1,10 +1,21 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Demo prima pagina in Spring boot</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<p>Esempio Spring Security Thymeleaf</p>
+<div sec:authorize="hasRole('USER')">Sei loginato come USER.</div>
+<div sec:authorize="hasRole('ADMIN')">Sei loginato come Amministartore</div>
+<div sec:authorize="isAuthenticated()">
+Questo testo e' visibile solo se sei autenticato
+</div>
+Nome User autenticato:
+<div sec:authentication="name"></div>
+Ruolo dello User autenticato:
+<div sec:authentication="principal.authorities"></div>
 <p th:text="'Hello, ' + ${name} + '!'" ></p>
 <a th:href="@{http://localhost:8080/login(logout)}">Logout</a>
 </body>
