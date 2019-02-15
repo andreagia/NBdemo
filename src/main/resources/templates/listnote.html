@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Titolo</th>
+        <th>Contenuto</th>
+        <th>creato</th>
+        <th>Modificato</th>
+        <th>Creato da</th>
+        <th>Modificato da</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lista : ${listanote}">
+        <td th:text="${lista.id}"></td>
+        <td th:text="${lista.title}"></td>
+        <td th:text="${lista.content}"></td>
+        <td th:text="${lista.createdAt}"></td>
+        <td th:text="${lista.updatedAt}"></td>
+        <td th:text="${lista.createdBy}"></td>
+        <td th:text="${lista.modifiedBy}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{http://localhost:8080/addnote}">Vai in addnote</a>
+</body>
+</html>

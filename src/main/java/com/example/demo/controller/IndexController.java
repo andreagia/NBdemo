@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class IndexController {
@@ -34,6 +36,8 @@ public class IndexController {
     @GetMapping("/addnote")
     public String greetingForm(Model model) {
         model.addAttribute("note", new Note());
+        List<Note> findallnote = noteRepository.findAll();
+        model.addAttribute("listanote",findallnote);
         return "addnote";
     }
 
@@ -41,6 +45,18 @@ public class IndexController {
     public String greetingSubmit(@ModelAttribute Note note) {
         noteRepository.save(note);
         return "addnote";
+    }
+    @GetMapping("/listnote")
+    public String listnote(Model model) {
+        model.addAttribute("listanote",noteRepository.findAll());
+        return "listnote";
+    }
+
+
+    @GetMapping("/updatenote")
+    public String updatenote(Model model) {
+        model.addAttribute("listanote",noteRepository.findAll());
+        return "listnote";
     }
 
 }

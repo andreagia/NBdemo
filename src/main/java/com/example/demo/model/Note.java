@@ -39,7 +39,7 @@ public class Note {
     @LastModifiedDate
     private Date updatedAt;
 
-    @Column(name = "created_by")
+    @Column(name = "created_by",nullable = false, updatable = false)
     @CreatedBy
     private String createdBy;
 
