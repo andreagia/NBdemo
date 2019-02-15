@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -32,8 +31,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-
-
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

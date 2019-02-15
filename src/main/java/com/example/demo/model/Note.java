@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 @Table(name = "notes")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt","createdBy","modifiedBy"},
         allowGetters = true)
 public class Note {
     @Id
