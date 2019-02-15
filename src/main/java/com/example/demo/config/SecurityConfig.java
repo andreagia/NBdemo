@@ -28,8 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                .logout().invalidateHttpSession(true)
+                .deleteCookies("SESSION")
+                .permitAll().and().csrf().disable();
     }
 
     @Bean
